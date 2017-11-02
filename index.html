@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+  <html>
+    <!-- Dont worry about this stuff -->
+    <head>
+      <title>Sunshine</title>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <style>
+        #demo1 {height: 120px; width: 120px; border: 1px solid rgba(0,0,0,0.2); transition: all 0.4s ease-in-out 0s;}
+        #demo2 {height: 120px; width: 120px; border: 1px solid rgba(0,0,0,0.2); transition: all 0.4s ease-in-out 0s;}
+        .code ul li {margin-left: 24px;}
+        .code li {margin-top: 10px;}
+      </style>
+    </head>
+
+    <body>
+      <section class="container">
+        <h3 class="blue-text text-accent-5">How to position 101</h3>
+        <div class="divider" style="height: 2px;"></div>
+
+        <h4>Introduction to positioning</h4>
+        <div class="row">
+          <div class="col s12 m6">
+            <h5>What is positioning?</h5>
+            <p>Positioning is an CSS properity that defines how an element is positioned relative to other elements on a page. (In case you dont know, element is the equivalent of saying thing for web)</p>
+            <h5>There are 5 types of positioning:</h5>
+            <ul class="collection" style="max-width: 400px; margin-bottom: 0;">
+              <li class="collection-item">static</li>
+              <li class="collection-item grey lighten-3">relative</li>
+              <li class="collection-item">fixed</li>
+              <li class="collection-item grey lighten-3">absolute</li>
+              <li class="collection-item">sticky</li>
+            </ul>
+            <span style="font-size: 12px;">*We only care about the highlighted ones</span>
+            <h5 style="margin-top: 30px;">Online Resources</h5>
+            <p><a href="https://www.w3schools.com/cssref/pr_class_position.asp">How to use position properity - w3schools</a></p>
+            <p><a href="https://www.w3schools.com/css/css_positioning.asp">About different types of positioning - w3schools</a></p>
+            <p><strong>Note:</strong> w3schools is basically the bible for everything web related</p>
+          </div>
+          <div class="col s12 m6">
+            <h5>What is relative &amp; absolute positioning?</h5>
+            <h5>Relative</h5>
+            <p>Positioning the element relative to where it should be (if static). In layman terms, it shouldn't affect how it is positioned, but now it can move around if given properities.</p>
+            <div class="row">
+              <div class="col s12 m5" style="display: flex; align-items: center; justify-content: center; margin-top: 10px;">
+                <div id="demo1" class="grey lighten-3" style="position: relative; top: 0;"></div>
+              </div>
+              <div class="col s12 m7">
+                <div class="card blue-grey lighten-5">
+                  <div class="card-content">
+                    <span class="card-title">Relative Positioning Demo</span>
+                    <p id="demo1-text">The box is relative, but no properities</p>
+                  </div>
+                  <div class="card-action">
+                    <a class="teal-text text-darken-1" href="javascript:demo1();">Toggle Properties</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+            <h5>Absolute</h5>
+            <p>Positioning the element relative to where it should be relative to the first <strong>POSITIONED</strong> parent (If no parent, then body of page).</p>
+            <div class="row">
+              <div class="col s12 m5" style="display: flex; align-items: center; justify-content: center; margin-top: 10px;">
+                <div id="demo2" class="blue lighten-5" style="position: static; top: 0;"></div>
+              </div>
+              <div class="col s12 m7">
+                <div class="card blue-grey lighten-5">
+                  <div class="card-content">
+                    <span class="card-title">Absolute Positioning Demo</span>
+                    <p id="demo2-text">The box is position: static (default)</p>
+                    <p><strong>Note:</strong> box has top: 0;</p>
+                  </div>
+                  <div class="card-action">
+                    <a class="teal-text text-darken-1" href="javascript:demo2();">Toggle Absolute</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="divider" style="height: 2px; margin-bottom: 30px;"></div>
+        <h4 style="margin-bottom: 20px;">HoW dO yOu PuT tHiNg On ThInG?</h4>
+        <div class="row">
+          <div class="col s12 m6">
+            <h5>Overview</h5>
+            <p>Assuming you read the positioning stuff (it's only 2 things, go read it if u haven't man xD). Lets put it to some good use.</p>
+            <h5>Index</h5>
+            <p>I would be showing you how to do the following (with code and notes):</p>
+            <ul class="collection" style="max-width: 400px;">
+              <li class="collection-item grey lighten-4">Basic element stacking</li>
+              <li class="collection-item">2+ element stacking</li>
+              <li class="collection-item grey lighten-4">Vertical centering with positioning</li>
+              <li class="collection-item">Horizontial centering with positioning</li>
+              <li class="collection-item grey lighten-4">Complete centering with positioning</li>
+            </ul>
+
+          </div>
+          <div class="col s12 m6 z-depth-2" style="padding: 10px 0;">
+            <img src="http://i0.kym-cdn.com/photos/images/facebook/001/253/025/34d.jpg" width="100%" />
+          </div>
+        </div>
+
+
+        <div class="divider" style="height: 2px; margin: 30px 0;"></div>
+        <h4>A Bunch of Demos</h4>
+        <p><strong>Note:</strong> ignore class, opacity &amp; border as that is for styling, however pay attention to width &amp; height, good shit there</p>
+        <div class="row">
+          <div class="col s12 m6">
+            <h5>Basic element stacking</h5>
+            <div style="margin: 12px 0;">
+              <div class="grey lighten-3" style="max-width: 300px; height: 300px; border: 1px solid rgba(0,0,0,0.2); position: relative;">
+                <div class="blue lighten-3" style="width: 60%; height: 60%; border: 1px solid rgba(0,0,0,0.2); position: absolute; opacity: 0.4;"></div>
+              </div>
+            </div>
+            <a class="waves-effect waves-light btn modal-trigger" href="#skill1">Code &amp; Notes</a>
+          </div>
+          <div class="col s12 m6">
+            <h5>2+ element stacking</h5>
+            <div style="margin: 12px 0;">
+              <div class="grey lighten-3" style="max-width: 300px; height: 300px; border: 1px solid rgba(0,0,0,0.2); position: relative;">
+                <div class="blue lighten-3" style="width: 60%; height: 60%; border: 1px solid rgba(0,0,0,0.2); position: absolute; opacity: 0.4;">
+                  <div class="red lighten-3" style="width: 30%; height: 30%; border: 1px solid rgba(0,0,0,0.2); position: absolute; top: 20%; left: 50%; opacity: 0.6;"></div>
+                </div>
+                <div class="green lighten-3" style="width: 60%; height: 60%; border: 1px solid rgba(0,0,0,0.2); position: absolute; top: 20%; left: 50%; opacity: 0.4;"></div>
+              </div>
+            </div>
+            <a class="waves-effect waves-light btn modal-trigger" href="#skill2">Code &amp; Notes</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6">
+            <h5>Vertical centering with positioning</h5>
+            <div style="margin: 12px 0;">
+              <div class="grey lighten-3" style="max-width: 300px; height: 300px; border: 1px solid rgba(0,0,0,0.2); position: relative;">
+                <div class="blue lighten-3" style="width: 60%; height: 60%; border: 1px solid rgba(0,0,0,0.2); position: absolute; opacity: 0.4; top: 0; bottom: 0; margin: auto 0;"></div>
+              </div>
+            </div>
+            <a class="waves-effect waves-light btn modal-trigger" href="#skill3">Code &amp; Notes</a>
+          </div>
+          <div class="col s12 m6">
+            <h5>Horizontal centering with positioning</h5>
+            <div style="margin: 12px 0;">
+              <div class="grey lighten-3" style="max-width: 300px; height: 300px; border: 1px solid rgba(0,0,0,0.2); position: relative;">
+                <div class="blue lighten-3" style="width: 60%; height: 60%; border: 1px solid rgba(0,0,0,0.2); position: absolute; opacity: 0.4; right: 0; left: 0; margin: 0 auto;"></div>
+              </div>
+            </div>
+            <a class="waves-effect waves-light btn modal-trigger" href="#skill4">Code &amp; Notes</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m6">
+            <h5>Complete centering with positioning</h5>
+            <div style="margin: 12px 0;">
+              <div class="grey lighten-3" style="max-width: 300px; height: 300px; border: 1px solid rgba(0,0,0,0.2); position: relative;">
+                <div class="blue lighten-3" style="width: 60%; height: 60%; border: 1px solid rgba(0,0,0,0.2); position: absolute; opacity: 0.4; right: 0; left: 0; top: 0; bottom: 0; margin: auto;"></div>
+              </div>
+            </div>
+            <a class="waves-effect waves-light btn modal-trigger" href="#skill5">Code &amp; Notes</a>
+          </div>
+          <div class="col s12 m4">
+            <h5>The End</h5>
+            <p>Congratz you made it to the end, hopefully at this point you should be able to stack stuff now. In case you can't find it or what not, email is <a href="mailto:frederic.pun@ontario.ca">here</a>. Good luck on whatever your making.</p>
+            <img src="https://i.imgur.com/JKI6kpX.gif" width="100%;">
+          </div>
+        </div>
+      </section>
+
+      <!-- Demo 1 -->
+      <div id="skill1" class="modal">
+        <div class="modal-content">
+          <h4>Basic Element Stacking</h4>
+          <div class="row">
+            <div class="col s12 m6">
+              <h5>Code</h5>
+              <ul class="code">
+                <li>&lt;div class="grey lighten-3" style="max-width: 300px; height: 300px; border: 1px solid rgba(0,0,0,0.2); <span class="blue-text">position: relative;</span>"></li>
+                <li>
+                  <ul>
+                    <li>&lt;div class="blue lighten-3" style="<span class="green-text">width: 60%; height: 60%;</span> border: 1px solid rgba(0,0,0,0.2); <span class="red-text">position: absolute;</span> opacity: 0.4;">&lt;/div></li>
+                  </ul>
+                </li>
+                <li>&lt;/div></li>
+              </ul>
+            </div>
+            <div class="col s12 m6">
+              <h5>Notes</h5>
+              <p><span class="blue-text">Blue:</span> The "container" of the absolute element has to be relative, or else the absolute element wouldn't be relative to the container but the body.</p>
+              <p><span class="green-text">Green:</span> Cool fact, percentage would also be relative to the first positioned parent. (else body)</p>
+              <p><span class="red-text">Red:</span> Has to be absolute to move around inside container, it would "take up no space", meaning other non-positioned elements wouldn't be affected by this absolute element.</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
+      <!-- Demo 2 -->
+      <div id="skill2" class="modal">
+        <div class="modal-content">
+          <h4>2+ Element Stacking</h4>
+          <div class="row">
+            <div class="col s12 m6">
+              <h5>Code</h5>
+              <ul class="code">
+                <li>&lt;div class="grey lighten-3" style="max-width: 300px; height: 300px; border: 1px solid rgba(0,0,0,0.2); position: relative;"></li>
+                <li>
+                  <ul>
+                    <li>&lt;div class="blue lighten-3" style="width: 60%; height: 60%; border: 1px solid rgba(0,0,0,0.2); position: absolute; opacity: 0.4;"></li>
+                    <li>
+                      <ul>
+                        <li><span class="green-text">&lt;div class="red lighten-3" style="width: 30%; height: 30%; border: 1px solid rgba(0,0,0,0.2); position: absolute; <span class="red-text">top: 20%; left: 50%;</span> opacity: 0.6;">&lt;/div></span></li>
+                      </ul>
+                    </li>
+                    <li>&lt;/div></li>
+                    <li><span class="blue-text">&lt;div class="green lighten-3" style="width: 60%; height: 60%; border: 1px solid rgba(0,0,0,0.2); position: absolute; <span class="red-text">top: 20%; left: 50%;</span> opacity: 0.4;">&lt;/div></span></li>
+                  </ul>
+                </li>
+                <li>&lt;/div></li>
+              </ul>
+            </div>
+            <div class="col s12 m6">
+              <h5>Notes</h5>
+              <p><span class="blue-text">Blue:</span> We can have 2 absolutes in a relative and it's fine, plus they don't affect each other.</p>
+              <p><span class="green-text">Green:</span> Absolute in an absolute works too! Because absolute is relative positioning to the first POSITIONED parent, and absolute is a position.</p>
+              <p><span class="red-text">Red:</span> This is something like pushing the element, there are 4 orientations - top, bottom, left, right. Note that the the percent means that there is a space of about 20%/50% of the parent's width/height from the "insert orientation" edge of the parent. Also note they cancel each other out (etc. left: 20px and right: 10px = left: 10px)</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
+      <!-- Demo 3 -->
+      <div id="skill3" class="modal">
+        <div class="modal-content">
+          <h4>Vertical Centering with Positioning</h4>
+          <div class="row">
+            <div class="col s12 m6">
+              <h5>Code</h5>
+              <ul class="code">
+                <li>&lt;div class="grey lighten-3" style="max-width: 300px; height: 300px; border: 1px solid rgba(0,0,0,0.2); position: relative;"></li>
+                <li>
+                  <ul>
+                    <li>&lt;div class="blue lighten-3" style="width: 60%; height: 60%; border: 1px solid rgba(0,0,0,0.2); position: absolute; opacity: 0.4; <span class="blue-text">top: 0; bottom: 0;</span> <span class="green-text">margin: auto 0;</span>">&lt;/div></li>
+                  </ul>
+                </li>
+                <li>&lt;/div></li>
+              </ul>
+            </div>
+            <div class="col s12 m6">
+              <h5>Notes</h5>
+              <p><span class="blue-text">Blue:</span> MUST add if you're doing vertical centering for compatibility reasons from experience.</p>
+              <p><span class="green-text">Green:</span> This is what actually centers the thing (more specifically the auto part of margin), tbh I have no idea why/how, it just is. Note if you don't know the syntax, first number is for top/bottom and second is for left/right.</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
+      <!-- Demo 4 -->
+      <div id="skill4" class="modal">
+        <div class="modal-content">
+          <h4>Horizontal Centering with Positioning</h4>
+          <div class="row">
+            <div class="col s12 m6">
+              <h5>Code</h5>
+              <ul class="code">
+                <li>&lt;div class="grey lighten-3" style="max-width: 300px; height: 300px; border: 1px solid rgba(0,0,0,0.2); position: relative;"></li>
+                <li>
+                  <ul>
+                    <li>&lt;div class="blue lighten-3" style="width: 60%; height: 60%; border: 1px solid rgba(0,0,0,0.2); position: absolute; opacity: 0.4; <span class="blue-text">right: 0; left: 0;</span> <span class="green-text">margin: 0 auto;</span>">&lt;/div></li>
+                  </ul>
+                </li>
+                <li>&lt;/div></li>
+              </ul>
+            </div>
+            <div class="col s12 m6">
+              <h5>Notes</h5>
+              <p><span class="blue-text">Blue:</span> MUST add if you're doing vertical centering for compatibility reasons from experience.</p>
+              <p><span class="green-text">Green:</span> This is what actually centers the thing (more specifically the auto part of margin), tbh I have no idea why/how, it just is. Note if you don't know the syntax, first number is for top/bottom and second is for left/right.</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
+      <!-- Demo 5 -->
+      <div id="skill5" class="modal">
+        <div class="modal-content">
+          <h4>Complete Centering with Positioning</h4>
+          <div class="row">
+            <div class="col s12 m6">
+              <h5>Code</h5>
+              <ul class="code">
+                <li>&lt;div class="grey lighten-3" style="max-width: 300px; height: 300px; border: 1px solid rgba(0,0,0,0.2); position: relative;"></li>
+                <li>
+                  <ul>
+                    <li>&lt;div class="blue lighten-3" style="width: 60%; height: 60%; border: 1px solid rgba(0,0,0,0.2); position: absolute; opacity: 0.4; <span class="blue-text">right: 0; left: 0; top: 0; bottom: 0;</span> <span class="green-text">margin: auto;</span>">&lt;/div></li>
+                  </ul>
+                </li>
+                <li>&lt;/div></li>
+              </ul>
+            </div>
+            <div class="col s12 m6">
+              <h5>Notes</h5>
+              <p><span class="blue-text">Blue:</span> Yup you guessed it. Complete centering is just vertical and horizontal stuff all together.</p>
+              <p><span class="green-text">Green:</span> Both stuff combined, note that the sytnax for if there is 1 thing means its for all (top, bottom, left, right).</p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
+    </body>
+
+    <!-- Dont worry about this stuff -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.modal').modal();
+      });
+
+      function demo1() {
+        var s = "The box is relative, ";
+        var t = document.getElementById("demo1-text");
+        var i = $("#demo1");
+
+        if (i.css("top") === "0px") {
+          i.css("top", "40px");
+          t.innerHTML = s + "with top: 40px";
+        } else {
+          i.css("top", "0px");
+          t.innerHTML = s + "but no properities";
+        }
+      }
+
+      function demo2() {
+        var s = "The box is ";
+        var t = document.getElementById("demo2-text");
+        var i = $("#demo2");
+
+        if (i.css("position") === "static") {
+          i.css("position", "absolute");
+          t.innerHTML = s + "position: absolute";
+        } else {
+          i.css("position", "static");
+          t.innerHTML = s + "position: static (default)";
+        }
+      }
+    </script>
+  </html>
